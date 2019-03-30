@@ -6,7 +6,7 @@
  */
 
 export default function firstPromise(promises) {
-  return new Promise(function(resolve, reject) {
-    // TODO: implement
+  return new Promise( function(resolve, reject) {
+    Promise.race(promises).then(result=>resolve(result)).catch(error=>reject(error));
   });
 };
