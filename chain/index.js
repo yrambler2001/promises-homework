@@ -12,10 +12,11 @@
 export default function chain(promises) {
   return new Promise(async (resolve, reject) => {
     try {
+      var result = [];
       for (var promise of promises) {
-        var result = await promise;
-        console.log(result);
+        result = result.concat(await promise);
       }
-    } catch (error) { console.log(`Error: ${error}`) }
+      resolve(result)
+    } catch (error) { reject(error) }
   });
 }
