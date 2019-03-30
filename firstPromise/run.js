@@ -18,7 +18,7 @@ export default async () => {
   function throwInRandomTime() {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        reject('Random error');
+        reject({message: 'Random error'});
       }, Math.random()*2000)
     });
   }
