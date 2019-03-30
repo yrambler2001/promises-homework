@@ -15,8 +15,9 @@
 
 export default function promisify(fn) {
   return function(...args) {
-    // TODO: implement
-    fn(...args, () => {});
+    return new Promise (async (resolve,reject)=>fn(...args, (error,result) => {
+      if (error) reject(error); else resolve(result)
+    }));
   };
 };
 
