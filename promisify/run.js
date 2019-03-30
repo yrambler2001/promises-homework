@@ -40,7 +40,7 @@ export default async (username) => {
    */
   getGitHubProfile(username, (error, result) => {
     if (!error) {
-      console.log(chalk.green('[promisify][getGitHubProfile] Success:', `${result.name} ${result.location}`));
+      console.log(chalk.green('[promisify][getGitHubProfile] Success:', `${result.data.name} ${result.data.location}`));
     } else {
       console.log(chalk.red('[promisify][getGitHubProfile] Error:'), chalk.red(error));
     }
@@ -49,7 +49,7 @@ export default async (username) => {
   try {
     const result = await getGitHubProfileAsync(username);
     if (!result) throw 'No result recieved';
-    console.log(chalk.green('[promisify][getGitHubProfileAsync] Success:', `${result.name} ${result.location}`));
+    console.log(chalk.green('[promisify][getGitHubProfileAsync] Success:', `${result.data.name} ${result.data.location}`));
   } catch(error) {
     console.log(chalk.red('[promisify][getGitHubProfileAsync] Error:'), chalk.red(error));
   }
