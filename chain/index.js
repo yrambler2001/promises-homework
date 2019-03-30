@@ -11,6 +11,11 @@
 
 export default function chain(promises) {
   return new Promise(async (resolve, reject) => {
-    // TODO: implement
+    try {
+      for (var promise of promises) {
+        var result = await promise;
+        console.log(result);
+      }
+    } catch (error) { console.log(`Error: ${error}`) }
   });
 }
